@@ -1,102 +1,59 @@
-# OC-Projet11-Güdlft# gudlift-registration
+# OC-Projet11-Güdlft
 
-
-
-Application web Flask de réservation de places pour compétitions sportives.1. Why
-
-
+Application web Flask de réservation de places pour compétitions sportives.
 
 ## Description du projet
 
-    This is a proof of concept (POC) project to show a light-weight version of our competition booking platform. The aim is the keep things as light as possible, and use feedback from the users to iterate.
-
 GÜDLFT est une plateforme de réservation permettant aux secrétaires de clubs sportifs de réserver des places pour des compétitions à venir. Ce projet fait partie de la formation Développeur d'application Python d'OpenClassrooms.
-
-2. Getting Started
 
 **Objectifs du projet :**
 
-- Corriger 5 bugs critiques identifiés dans le code original    This project uses the following technologies:
-
+- Corriger 5 bugs critiques identifiés dans le code original
 - Implémenter une fonctionnalité de leaderboard public
-
-- Écrire une suite de tests complète (unitaires, intégration, Selenium, performance)    * Python v3.x+
-
+- Écrire une suite de tests complète (unitaires, intégration, Selenium, performance)
 - Atteindre une couverture de code minimum de 60%
-
-    * [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 
 ## Fonctionnalités
 
-        Whereas Django does a lot of things for us out of the box, Flask allows us to add only what we need. 
-
-### Phase 1 - Corrections de bugs     
+### Phase 1 - Corrections de bugs
 
 1. Gestion des erreurs pour emails invalides
-
-2. Déduction automatique des points lors des réservations (1 place = 3 points)    * [Virtual environment](https://virtualenv.pypa.io/en/stable/installation.html)
-
+2. Déduction automatique des points lors des réservations (1 place = 3 points)
 3. Limitation à 12 places maximum par réservation
-
-4. Validation du solde de points disponibles        This ensures you'll be able to install the correct packages without interfering with Python on your machine.
-
+4. Validation du solde de points disponibles
 5. Impossibilité de réserver pour des compétitions passées
-
-        Before you begin, please ensure you have this installed globally. 
 
 ### Phase 2 - Leaderboard public
 
 - Affichage des clubs classés par nombre de points
-
-- Accessible sans authentification3. Installation
-
+- Accessible sans authentification
 - Mise à jour en temps réel après chaque réservation
-
-    - After cloning, change into the directory and type <code>virtualenv .</code>. This will then set up a a virtual python environment within that directory.
 
 ## Prérequis
 
-    - Next, type <code>source bin/activate</code>. You should see that your command prompt has changed to the name of the folder. This means that you can install packages in here without affecting affecting files outside. To deactivate, type <code>deactivate</code>
-
 - Python 3.8 ou supérieur
-
-- pip (gestionnaire de paquets Python)    - Rather than hunting around for the packages you need, you can install in one step. Type <code>pip install -r requirements.txt</code>. This will install all the packages listed in the respective file. If you install a package, make sure others know by updating the requirements.txt file. An easy way to do this is <code>pip freeze > requirements.txt</code>
-
+- pip (gestionnaire de paquets Python)
 - Git
-
-- Un navigateur web moderne    - Flask requires that you set an environmental variable to the python file. However you do that, you'll want to set the file to be <code>server.py</code>. Check [here](https://flask.palletsprojects.com/en/1.1.x/quickstart/#a-minimal-application) for more details
-
+- Un navigateur web moderne
 - Chrome/Chromium (pour les tests Selenium)
-
-    - You should now be ready to test the application. In the directory, type either <code>flask run</code> or <code>python -m flask run</code>. The app should respond with an address you should be able to go to using your browser.
 
 ## Installation
 
-4. Current Setup
-
 ### 1. Cloner le repository
 
-```bash    The app is powered by [JSON files](https://www.tutorialspoint.com/json/json_quick_guide.htm). This is to get around having a DB until we actually need one. The main ones are:
-
-git clone https://github.com/[votre-username]/OC-Projet11-Güdlft.git     
-
-cd OC-Projet11-Güdlft    * competitions.json - list of competitions
-
-```    * clubs.json - list of clubs with relevant information. You can look here to see what email addresses the app will accept for login.
-
-
-
-### 2. Créer un environnement virtuel5. Testing
-
 ```bash
-
-python3 -m venv .venv    You are free to use whatever testing framework you like-the main thing is that you can show what tests you are using.
-
+git clone https://github.com/steveraffner/OC-Projet11-G-dlft.git
+cd OC-Projet11-G-dlft
 ```
 
-    We also like to show how well we're testing, so there's a module called 
+### 2. Créer un environnement virtuel
 
-### 3. Activer l'environnement virtuel    [coverage](https://coverage.readthedocs.io/en/coverage-5.1/) you should add to your project.
+```bash
+python3 -m venv .venv
+```
+
+### 3. Activer l'environnement virtuel
+
 
 
 
