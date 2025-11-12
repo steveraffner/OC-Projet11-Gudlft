@@ -65,6 +65,17 @@ def purchasePlaces():
 # TODO: Add route for points display
 
 
+@app.route('/leaderboard')
+def leaderboard():
+    """
+    Affiche le tableau des points de tous les clubs
+    Accessible sans authentification (Phase 2)
+    """
+    # Trier les clubs par points décroissants
+    sorted_clubs = sorted(clubs, key=lambda x: int(x['points']), reverse=True)
+    return render_template('leaderboard.html', clubs=sorted_clubs)
+
+
 @app.route('/logout')
 def logout():
     return redirect(url_for('index'))
