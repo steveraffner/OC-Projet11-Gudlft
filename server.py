@@ -50,7 +50,14 @@ def purchasePlaces():
     competition = [c for c in competitions if c['name'] == request.form['competition']][0]
     club = [c for c in clubs if c['name'] == request.form['club']][0]
     placesRequired = int(request.form['places'])
-    competition['numberOfPlaces'] = int(competition['numberOfPlaces'])-placesRequired
+    
+    # Déduire les places de la compétition
+    competition['numberOfPlaces'] = int(competition['numberOfPlaces']) - placesRequired
+    
+    # Déduire les points du club (1 place = 3 points)
+    points_cost = placesRequired * 3
+    club['points'] = str(int(club['points']) - points_cost)
+    
     flash('Great-booking complete!')
     return render_template('welcome.html', club=club, competitions=competitions)
 
