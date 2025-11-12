@@ -11,3 +11,9 @@ __pycache__
 htmlcov/
 .coverage
 .DS_Store
+# Documents de préparation personnels
+GUIDE_SOUTENANCE.md
+Journal_de_travail.md
+# Screenshots de rapport
+*.png
+rapport_couverture.png
