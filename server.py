@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 from flask import Flask,render_template,request,redirect,flash,url_for
 
 
@@ -51,18 +52,48 @@ def purchasePlaces():
     club = [c for c in clubs if c['name'] == request.form['club']][0]
     placesRequired = int(request.form['places'])
     
+    # Calculer le coût en points (1 place = 3 points)
+    points_cost = placesRequired * 3
+    club_points = int(club['points'])
+    
+    # Validation 1 : vérifier que la compétition est dans le futur
+    competition_date = datetime.strptime(competition['date'], '%Y-%m-%d %H:%M:%S')
+    if competition_date < datetime.now():
+        flash('Cannot book places for past competitions.')
+        return render_template('welcome.html', club=club, competitions=competitions)
+    
+    # Validation 2 : maximum 12 places par réservation
+    if placesRequired > 12:
+        flash('You cannot book more than 12 places per competition.')
+        return render_template('welcome.html', club=club, competitions=competitions)
+    
+    # Validation 3 : vérifier que le club a assez de points
+    if points_cost > club_points:
+        flash(f'Not enough points. You need {points_cost} points but only have {club_points}.')
+        return render_template('welcome.html', club=club, competitions=competitions)
+    
     # Déduire les places de la compétition
     competition['numberOfPlaces'] = int(competition['numberOfPlaces']) - placesRequired
     
-    # Déduire les points du club (1 place = 3 points)
-    points_cost = placesRequired * 3
-    club['points'] = str(int(club['points']) - points_cost)
+    # Déduire les points du club
+    club['points'] = str(club_points - points_cost)
     
     flash('Great-booking complete!')
     return render_template('welcome.html', club=club, competitions=competitions)
 
 
 # TODO: Add route for points display
+
+
+@app.route('/leaderboard')
+def leaderboard():
+    """
+    Affiche le tableau des points de tous les clubs
+    Accessible sans authentification (Phase 2)
+    """
+    # Trier les clubs par points décroissants
+    sorted_clubs = sorted(clubs, key=lambda x: int(x['points']), reverse=True)
+    return render_template('leaderboard.html', clubs=sorted_clubs)
 
 
 @app.route('/logout')
