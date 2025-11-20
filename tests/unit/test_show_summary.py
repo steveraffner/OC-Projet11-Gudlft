@@ -1,18 +1,17 @@
 """
 Tests unitaires pour la fonction showSummary de server.py
 """
-import pytest
-from server import app, clubs
+from server import app
 
 
 class TestShowSummary:
     """Tests pour la route /showSummary"""
-    
+
     def setup_method(self):
         """Configuration avant chaque test"""
         self.client = app.test_client()
         app.config['TESTING'] = True
-    
+
     def test_show_summary_with_valid_email(self):
         """Test : affichage du résumé avec un email valide"""
         response = self.client.post('/showSummary', data={
@@ -21,7 +20,7 @@ class TestShowSummary:
         assert response.status_code == 200
         assert b'Welcome' in response.data
         assert b'john@simplylift.co' in response.data
-    
+
     def test_show_summary_with_invalid_email_should_not_crash(self):
         """
         Test : un email inexistant ne doit PAS faire crasher l'application
