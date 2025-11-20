@@ -195,6 +195,12 @@ Chaque bug a été corrigé sur une branche dédiée avec ses tests associés, p
 
 ## Qualité du code
 
+### Conformité PEP8
+
+Le code respecte les standards PEP8 et est vérifié avec Flake8.
+
+**Résultat actuel :** ✅ 0 erreur flake8
+
 ### Linting avec Flake8
 
 Le projet utilise Flake8 pour vérifier la qualité du code Python.
