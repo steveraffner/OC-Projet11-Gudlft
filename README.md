@@ -1,10 +1,10 @@
-# OC-Projet11-Güdlft
+# OC-Projet11-Gudlft
 
 Application web Flask de réservation de places pour compétitions sportives.
 
 ## Description du projet
 
-GÜDLFT est une plateforme de réservation permettant aux secrétaires de clubs sportifs de réserver des places pour des compétitions à venir. Ce projet fait partie de la formation Développeur d'application Python d'OpenClassrooms.
+GUDLFT est une plateforme de réservation permettant aux secrétaires de clubs sportifs de réserver des places pour des compétitions à venir. Ce projet fait partie de la formation Développeur d'application Python d'OpenClassrooms.
 
 **Objectifs du projet :**
 
@@ -134,7 +134,7 @@ locust -f locustfile.py --host=http://127.0.0.1:5000 \
 ## Structure du projet
 
 ```
-OC-Projet11-Güdlft/
+OC-Projet11-Gudlft/
 ├── server.py                   # Application Flask principale
 ├── clubs.json                  # Données des clubs
 ├── competitions.json           # Données des compétitions

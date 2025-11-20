@@ -232,7 +232,7 @@ class TestBrowserAutomationWithServer:
     """
     Tests Selenium qui nécessitent le serveur Flask en cours d'exécution
     Pour lancer ces tests :
-    1. Terminal 1 : cd OC-Projet11-Güdlft && .venv/bin/python server.py
-    2. Terminal 2 : cd OC-Projet11-Güdlft && .venv/bin/pytest tests/selenium/test_browser_automation.py -v -m "not skip"
+    1. Terminal 1 : cd OC-Projet11-Gudlft && .venv/bin/python server.py
+    2. Terminal 2 : cd OC-Projet11-Gudlft && .venv/bin/pytest tests/selenium/test_browser_automation.py -v -m "not skip"
     """
     pass

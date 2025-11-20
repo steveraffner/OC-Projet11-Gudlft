@@ -17,7 +17,7 @@ import random
 
 class GudlftUser(HttpUser):
     """
-    Classe représentant un utilisateur du système GÜDLFT
+    Classe représentant un utilisateur du système GUDLFT
     Simule le comportement d'un secrétaire de club effectuant des réservations
     """
     
