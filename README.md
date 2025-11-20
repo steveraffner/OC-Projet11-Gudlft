@@ -139,6 +139,8 @@ OC-Projet11-Gudlft/
 ├── clubs.json                  # Données des clubs
 ├── competitions.json           # Données des compétitions
 ├── requirements.txt            # Dépendances Python
+├── .flake8                     # Configuration flake8
+├── API_DOCUMENTATION.md        # Documentation complète de l'API
 ├── locustfile.py              # Tests de performance
 ├── templates/                  # Templates HTML
 │   ├── index.html
