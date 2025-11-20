@@ -191,6 +191,32 @@ Chaque bug a été corrigé sur une branche dédiée avec ses tests associés, p
 - `bug/*` : Branches de correction de bugs individuels
 - `feature/*` : Branches de développement de nouvelles fonctionnalités
 
+## Qualité du code
+
+### Linting avec Flake8
+
+Le projet utilise Flake8 pour vérifier la qualité du code Python.
+
+```bash
+# Vérifier tout le projet
+flake8
+
+# Vérifier un fichier spécifique
+flake8 server.py
+
+# Générer un rapport HTML
+flake8 --format=html --htmldir=flake8-report
+```
+
+Configuration dans `.flake8`:
+- Longueur maximale de ligne: 100 caractères
+- Complexité maximale: 10 (McCabe)
+
+## Documentation
+
+- **API Documentation**: Voir [API_DOCUMENTATION.md](API_DOCUMENTATION.md) pour la documentation complète des endpoints
+- **Docstrings**: Toutes les fonctions sont documentées avec des docstrings au format Google
+
 ## Auteur
 
 Projet réalisé dans le cadre de la formation Développeur d'application Python - OpenClassrooms

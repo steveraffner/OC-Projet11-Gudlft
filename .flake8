@@ -1,0 +1,41 @@
+[flake8]
+# Configuration flake8 pour GUDLFT
+
+# Longueur maximale de ligne
+max-line-length = 100
+
+# Ignorer certains répertoires
+exclude =
+    .git,
+    __pycache__,
+    .venv,
+    venv,
+    env,
+    .eggs,
+    *.egg,
+    build,
+    dist
+
+# Codes d'erreur à ignorer
+ignore =
+    # E203: whitespace before ':' (conflit avec black)
+    E203,
+    # W503: line break before binary operator (style recommandé)
+    W503,
+    # E501: line too long (géré par max-line-length)
+    E501
+
+# Niveau de complexité maximale (McCabe)
+max-complexity = 10
+
+# Afficher le code source pour chaque erreur
+show-source = True
+
+# Afficher le code d'erreur PEP8
+show-pep8 = True
+
+# Statistiques
+statistics = True
+
+# Nombre d'erreurs à afficher
+count = True
