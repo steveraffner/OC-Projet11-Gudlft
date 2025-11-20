@@ -42,8 +42,8 @@ GUDLFT est une plateforme de réservation permettant aux secrétaires de clubs s
 ### 1. Cloner le repository
 
 ```bash
-git clone https://github.com/steveraffner/OC-Projet11-G-dlft.git
-cd OC-Projet11-G-dlft
+git clone https://github.com/steveraffner/OC-Projet11-Gudlft.git
+cd OC-Projet11-Gudlft
 ```
 
 ### 2. Créer un environnement virtuel
