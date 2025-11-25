@@ -1,0 +1,43 @@
+Repository GitHub - OC Projet 11 GUDLFT
+========================================
+
+Lien du repository : https://github.com/steveraffner/OC-Projet11-Gudlft
+
+Structure des branches :
+- main : branche principale avec tous les correctifs
+- qa : branche d'assurance qualité
+- bug/points-calculation : Correction du calcul des points (1 point = 1 place)
+- bug/places-validation : Validation du nombre de places disponibles
+- bug/past-competitions : Empêcher les réservations sur des compétitions passées
+- bug/email-validation : Validation de l'email lors de la connexion
+- bug/max-places : Limitation à 12 places maximum par réservation
+- feature/leaderboard : Ajout du tableau des points des clubs
+
+Bugs corrigés :
+1. Calcul des points : 1 place = 1 point (au lieu de 3)
+2. Validation des places disponibles
+3. Réservation sur compétitions passées
+4. Validation des emails
+5. Limitation à 12 places maximum
+6. Affichage du leaderboard
+
+Tests :
+- Tests unitaires : 10/10 PASS 
+- Tests d'intégration : 7/7 PASS 
+- Tests Selenium : 9 tests créés (voir Issue #1)
+- Couverture : 91% (objectif : 60%) 
+
+Rapport de performance :
+- Fichier : report_performance.html
+- 83 requêtes testées
+- 0 échec (100% succès)
+- Temps de réponse moyen : 6ms
+
+Documentation :
+- README.md : Instructions complètes
+- API_DOCUMENTATION.md : Documentation de l'API
+- Issue #1 : Documentation du problème Selenium sur macOS
+
+Nom : RAFFNER Steve
+Date : 11/2025
+Projet : OpenClassrooms Projet 11 - GUDLFT

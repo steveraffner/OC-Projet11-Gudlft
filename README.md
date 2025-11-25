@@ -164,10 +164,10 @@ OC-Projet11-Gudlft/
 
 ## Résultats des tests
 
-- **Tests unitaires** : 10/10 PASS
-- **Tests d'intégration** : 7/7 PASS
-- **Tests Selenium** : 9 tests créés
-- **Couverture de code** : 94% (objectif : 60%)
+- **Tests unitaires** : 10/10 PASS ✅
+- **Tests d'intégration** : 7/7 PASS ✅
+- **Tests Selenium** : 9 tests créés (⚠️ non exécutables sur macOS - voir [Issue #1](https://github.com/steveraffner/OC-Projet11-Gudlft/issues/1))
+- **Couverture de code** : 91% (objectif : 60%) ✅
 
 ## Technologies utilisées
 
