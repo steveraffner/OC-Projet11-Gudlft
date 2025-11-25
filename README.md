@@ -18,10 +18,11 @@ GUDLFT est une plateforme de réservation permettant aux secrétaires de clubs s
 ### Phase 1 - Corrections de bugs
 
 1. Gestion des erreurs pour emails invalides
-2. Déduction automatique des points lors des réservations (1 place = 3 points)
+2. Déduction automatique des points lors des réservations (1 place = 1 point)
 3. Limitation à 12 places maximum par réservation
-4. Validation du solde de points disponibles
-5. Impossibilité de réserver pour des compétitions passées
+4. Validation du nombre de places disponibles dans la compétition
+5. Validation du solde de points disponibles
+6. Impossibilité de réserver pour des compétitions passées
 
 ### Phase 2 - Leaderboard public
 
