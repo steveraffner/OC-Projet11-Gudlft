@@ -99,7 +99,7 @@ def purchasePlaces():
     Validations effectuées:
     - La compétition doit être future (pas passée)
     - Maximum 12 places par réservation
-    - Le club doit avoir suffisamment de points (1 place = 3 points)
+    - Le club doit avoir suffisamment de points (1 place = 1 point)
 
     Form Data:
         competition (str): Nom de la compétition
@@ -114,8 +114,8 @@ def purchasePlaces():
     club = [c for c in clubs if c['name'] == request.form['club']][0]
     placesRequired = int(request.form['places'])
 
-    # Calculer le coût en points (1 place = 3 points)
-    points_cost = placesRequired * 3
+    # Calculer le coût en points (1 place = 1 point)
+    points_cost = placesRequired * 1
     club_points = int(club['points'])
 
     # Validation 1 : vérifier que la compétition est dans le futur
