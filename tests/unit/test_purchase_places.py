@@ -41,13 +41,13 @@ class TestPurchasePlaces:
         """
         Test : les points du club doivent être déduits lors d'un achat
         Bug identifié : ligne 48 server.py ne déduit pas les points
-        1 place = 3 points (selon spécifications)
+        1 place = 1 point (selon spécifications)
         """
         # État initial
         club_name = "Simply Lift"
         initial_points = int([c for c in clubs if c['name'] == club_name][0]['points'])
 
-        # Achat de 2 places (devrait coûter 6 points)
+        # Achat de 2 places (devrait coûter 2 points)
         self.client.post('/purchasePlaces', data={
             'club': club_name,
             'competition': 'Spring Festival',
@@ -56,7 +56,7 @@ class TestPurchasePlaces:
 
         # Vérifier que les points ont été déduits
         club_after = [c for c in clubs if c['name'] == club_name][0]
-        expected_points = initial_points - (2 * 3)  # 2 places × 3 points
+        expected_points = initial_points - (2 * 1)  # 2 places × 1 point
 
         assert int(club_after['points']) == expected_points, \
             f"Points should be {expected_points} but got {club_after['points']}"

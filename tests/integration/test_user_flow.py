@@ -68,8 +68,8 @@ class TestUserFlow:
         assert b'Great-booking complete!' in response.data
 
         # Étape 3 : Vérification des déductions
-        # Points : 3 places × 3 points = 9 points déduits
-        assert int(club['points']) == initial_points - 9
+        # Points : 3 places × 1 point = 3 points déduits
+        assert int(club['points']) == initial_points - 3
 
         # Places : 3 places déduites de la compétition
         assert int(competition['numberOfPlaces']) == initial_places - 3
@@ -101,17 +101,17 @@ class TestUserFlow:
         assert int(club['points']) == initial_points  # Points inchangés
 
         # Tentative 2 : Points insuffisants (doit échouer)
-        # Iron Temple a 4 points, 2 places coûtent 6 points
+        # Iron Temple a 4 points, 5 places coûtent 5 points
         response = self.client.post('/purchasePlaces', data={
             'club': 'Iron Temple',
             'competition': 'Spring Festival',
-            'places': '2'
+            'places': '5'
         }, follow_redirects=True)
 
         assert b'not enough points' in response.data.lower()
         assert int(club['points']) == initial_points  # Points toujours inchangés
 
-        # Tentative 3 : Réservation valide (1 place = 3 points, Iron Temple peut)
+        # Tentative 3 : Réservation valide (1 place = 1 point, Iron Temple peut)
         response = self.client.post('/purchasePlaces', data={
             'club': 'Iron Temple',
             'competition': 'Spring Festival',
@@ -119,7 +119,7 @@ class TestUserFlow:
         }, follow_redirects=True)
 
         assert b'Great-booking complete!' in response.data
-        assert int(club['points']) == initial_points - 3  # 1 place déduite
+        assert int(club['points']) == initial_points - 1  # 1 place déduite
 
     def test_login_booking_leaderboard_flow(self):
         """
@@ -146,7 +146,7 @@ class TestUserFlow:
         assert response.status_code == 200
 
         # Le leaderboard doit afficher les points mis à jour
-        expected_points = initial_points - 6  # 2 places × 3 points
+        expected_points = initial_points - 2  # 2 places × 1 point
         assert str(expected_points).encode() in response.data
         assert b'Simply Lift' in response.data
 
@@ -188,7 +188,7 @@ class TestUserFlow:
         })
 
         points_after_first = int(club['points'])
-        assert points_after_first == initial_points - 6
+        assert points_after_first == initial_points - 2
 
         # Deuxième réservation : 1 place pour Fall Classic
         self.client.post('/purchasePlaces', data={
@@ -198,8 +198,8 @@ class TestUserFlow:
         })
 
         points_after_second = int(club['points'])
-        assert points_after_second == points_after_first - 3
-        assert points_after_second == initial_points - 9  # Total : 6 + 3 = 9 points
+        assert points_after_second == points_after_first - 1
+        assert points_after_second == initial_points - 3  # Total : 2 + 1 = 3 points
 
     def test_leaderboard_accessible_without_login(self):
         """
