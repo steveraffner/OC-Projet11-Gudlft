@@ -98,12 +98,12 @@ class TestPurchasePlaces:
         """
         Test : un club ne peut pas dépenser plus de points qu'il n'en possède
         Bug identifié : pas de validation dans purchasePlaces
-        Iron Temple a 4 points (peut acheter 1 place max)
+        Iron Temple a 4 points (peut acheter jusqu'à 4 places)
         """
         response = self.client.post('/purchasePlaces', data={
             'club': 'Iron Temple',  # 4 points
             'competition': 'Spring Festival',
-            'places': '2'  # Coûte 6 points, mais le club n'en a que 4
+            'places': '5'  # Coûte 5 points, mais le club n'en a que 4
         }, follow_redirects=True)
 
         # Vérifier qu'un message d'erreur est affiché
