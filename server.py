@@ -99,6 +99,7 @@ def purchasePlaces():
     Validations effectuées:
     - La compétition doit être future (pas passée)
     - Maximum 12 places par réservation
+    - Vérification du nombre de places disponibles dans la compétition
     - Le club doit avoir suffisamment de points (1 place = 1 point)
 
     Form Data:
@@ -117,6 +118,7 @@ def purchasePlaces():
     # Calculer le coût en points (1 place = 1 point)
     points_cost = placesRequired * 1
     club_points = int(club['points'])
+    places_available = int(competition['numberOfPlaces'])
 
     # Validation 1 : vérifier que la compétition est dans le futur
     competition_date = datetime.strptime(competition['date'], '%Y-%m-%d %H:%M:%S')
@@ -129,7 +131,12 @@ def purchasePlaces():
         flash('You cannot book more than 12 places per competition.')
         return render_template('welcome.html', club=club, competitions=competitions)
 
-    # Validation 3 : vérifier que le club a assez de points
+    # Validation 3 : vérifier qu'il y a assez de places disponibles
+    if placesRequired > places_available:
+        flash(f'Not enough places available. Only {places_available} places remaining for this competition.')
+        return render_template('welcome.html', club=club, competitions=competitions)
+
+    # Validation 4 : vérifier que le club a assez de points
     if points_cost > club_points:
         flash(f'Not enough points. You need {points_cost} points but only have {club_points}.')
         return render_template('welcome.html', club=club, competitions=competitions)
